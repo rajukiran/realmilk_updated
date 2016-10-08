@@ -22,6 +22,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
         </activity>
+        <activity android:name=".activities.DrawerActivity" />
+        <activity android:name=".activities.Detail_Activity"></activity>
     </application>
 
 </manifest>

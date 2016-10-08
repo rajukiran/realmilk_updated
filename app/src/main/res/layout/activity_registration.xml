@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2015 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+-->
 
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,6 +35,7 @@
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
+            android:background="@drawable/cheese_2"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleMarginEnd="64dp">
@@ -48,18 +64,6 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:id="@+id/content_id"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="70dp"
-            android:orientation="vertical">
-
-            <android.support.v7.widget.CardView
-                android:layout_gravity="center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/card_margin">
 
                 <LinearLayout
                     style="@style/Widget.CardContent"
@@ -68,41 +72,21 @@
 
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="32dp"
-                        android:layout_marginRight="32dp"
-                        android:layout_marginBottom="8dp">
-
-                        <EditText
-                            android:id="@+id/first_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-                            android:padding="20dp"
-                            android:drawableTint="#8f8f8f"
-                            android:drawablePadding="10dp"
-                            android:hint="First name"
-                            android:inputType="text"
-                            android:singleLine="true" />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="32dp"
                         android:layout_marginRight="32dp"
                         android:layout_marginBottom="8dp">
 
                         <EditText
-                            android:id="@+id/last_name"
+                            android:id="@+id/firstname"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableLeft="@drawable/ic_account_circle_black_24dp"
                             android:padding="20dp"
                             android:drawableTint="@color/lineColor"
                             android:drawablePadding="10dp"
-                            android:hint="Last Name"
-                            android:inputType="text" />
+                            android:hint="first name"
+                            android:inputType="textAutoComplete" />
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
@@ -113,14 +97,33 @@
                         android:layout_marginBottom="8dp">
 
                         <EditText
-                            android:id="@+id/mobile"
+                            android:id="@+id/lastname"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/ic_perm_device_information_black_24dp"
+                            android:drawableLeft="@drawable/ic_account_circle_black_24dp"
                             android:padding="20dp"
                             android:drawableTint="@color/lineColor"
                             android:drawablePadding="10dp"
-                            android:hint="Primary Mobile Number"
+                            android:hint="last name"
+                            android:inputType="textAutoComplete" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginRight="32dp"
+                        android:layout_marginBottom="8dp">
+
+                        <EditText
+                            android:id="@+id/mobile_num"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_phone_white_24dp"
+                            android:padding="20dp"
+                            android:drawableTint="@color/lineColor"
+                            android:drawablePadding="10dp"
+                            android:hint="Mobile"
                             android:inputType="number" />
                     </android.support.design.widget.TextInputLayout>
 
@@ -158,6 +161,7 @@
                             android:padding="20dp"
                             android:drawableTint="@color/lineColor"
                             android:hint="Password"
+                            android:drawablePadding="10dp"
                             android:inputType="textPassword"
                             android:singleLine="true" />
                     </android.support.design.widget.TextInputLayout>
@@ -170,13 +174,14 @@
                         android:layout_marginBottom="8dp">
 
                         <EditText
-                            android:id="@+id/confirm_pass"
+                            android:id="@+id/conform_password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
                             android:padding="20dp"
                             android:drawableTint="@color/lineColor"
-                            android:hint="  Confirm Password"
+                            android:hint="Password"
+                            android:drawablePadding="10dp"
                             android:inputType="textPassword"
                             android:singleLine="true" />
                     </android.support.design.widget.TextInputLayout>
@@ -203,36 +208,21 @@
 
                     <Button
                         style="@style/Widget.AppCompat.Button.Colored"
-                        android:layout_width="match_parent"
+                        android:layout_width="88dp"
                         android:layout_height="wrap_content"
+                        android:id="@+id/register"
+                        android:layout_gravity="center_horizontal"
                         android:layout_marginTop="16dp"
                         android:layout_marginLeft="32dp"
                         android:layout_marginRight="32dp"
-                        android:text="Let's go!" />
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
+                        android:text="Let's Go" />
 
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
-    <!--<com.github.siyamed.shapeimageview.CircularImageView-->
-        <!--android:id="@+id/profileImage"-->
-        <!--android:layout_width="130dp"-->
-        <!--android:layout_height="130dp"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginBottom="10dp"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:src="@drawable/user"-->
-        <!--app:layout_anchor="@id/appbar"-->
-        <!--app:layout_anchorGravity="bottom|center_horizontal|center"-->
-        <!--app:siBorderColor="#FFF"-->
-        <!--app:siBorderWidth="1dp" />-->
-
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/upload_photo"
+        android:id="@+id/fab"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         app:layout_anchor="@id/appbar"

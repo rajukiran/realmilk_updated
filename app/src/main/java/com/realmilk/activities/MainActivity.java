@@ -9,18 +9,22 @@ import android.view.View;
 
 import com.realmilk.R;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_NAME = "app_name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        FloatingActionButton reg = (FloatingActionButton)findViewById(R.id.reg);
-
-        reg.setOnClickListener(this);
+        final FloatingActionButton registration = (FloatingActionButton) findViewById(R.id.registration);
+        registration.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Intent intent = getIntent();
         final String cheeseName = intent.getStringExtra(EXTRA_NAME);
@@ -28,14 +32,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle("RealMilk Login");
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.reg:
-                Intent registration = new Intent(this, RegistrationActivity.class);
-                startActivity(registration);
-        }
     }
 }
